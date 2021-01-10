@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Montserrat;
+    font-weight: 400;
+    src: url(./fonts/Montserrat-Regular.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: OpenSans;
+    font-weight: 400;
+    src: url(./fonts/OpenSans-Regular.ttf) format("truetype");
+  }
+}
