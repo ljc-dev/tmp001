@@ -1,9 +1,28 @@
 import { useRef } from "react"
-import UserIco from "../icons/userIco"
 import HamBtn from "./HamBtn"
+import LoginBtn from "./LoginBtn"
 
-function getMobileMenuItem(title) {
-  return
+const items = [
+  { title: "About", path: "about" },
+  { title: "Services", path: "about" },
+  { title: "Projects", path: "projects" },
+  { title: "Good To Know", path: "good-to-know" },
+  { title: "Clients", path: "clients" },
+  { title: "Contact", path: "contact" },
+]
+
+function getDesktopMenuItem(item, key) {
+  const { title, path } = item
+  return (
+    <li key={key}><a className="py-2 md:mx-2 lg:mx-4 border-b-2 border-teal-900 hover:border-gray-100" href={`#${path}`}>{title}</a></li>
+  )
+}
+
+function getMobileMenuItem(item, key) {
+  const { title, path } = item
+  return (
+    <li key={key}><a className="inline-block px-1 py-1 border-b-2 border-teal-900 hover:border-gray-100" href={`#${path}`}>{title}</a></li>
+  )
 }
 
 const TopNav = () => {
@@ -34,43 +53,27 @@ const TopNav = () => {
     }
   }
 
-  function handleLoginBtnClick() {
-    const stateObj = { page: "about" }
-    window.history.replaceState(stateObj, "", "./about")
-  }
-
   return (
     <nav className="flex bg-teal-900 text-white h-20 justify-center items-center fixed inset-x-0 top-0 z-20">
       <a href="#home" className="uppercase text-lg sm:text-xl tracking-wider font-mont ml-6 md:ml-0">james <span className="text-teal-400">consulting</span></a>
-      <ul className="md:flex lg:ml-20 md:ml-4 text-sm hidden">
-        <li><a className="p-4 md:px-2 lg:px-4" href="#about">About</a></li>
-        <li><a className="p-4 md:px-2 lg:px-4" href="#services">Services</a></li>
-        <li><a className="p-4 md:px-2 lg:px-4" href="#projects">Projects</a></li>
-        <li><a className="p-4 md:px-2 lg:px-4" href="#goodtoknow">Good To Know</a></li>
-        <li><a className="p-4 md:px-2 lg:px-4" href="#clients">Clients</a></li>
-        <li><a className="p-4 md:px-2 lg:px-4" href="#contact">Contact</a></li>
+      <ul className="hidden md:flex lg:ml-20 md:ml-4 md:text-sm lg:text-base">
+        {
+          items.map((item, key) => getDesktopMenuItem(item, key))
+        }
       </ul>
-      <button className="hidden md:flex lg:ml-12 md:ml-2 text-teal-400 items-center">
-        <UserIco />
-        <span className="text-sm ml-2 md:ml-1">Log In</span>
-      </button >
+      <div className="hidden md:flex">
+        <LoginBtn />
+      </div>
       <HamBtn menuToggleCallback={toggleMenu} ref={menuBtnRef} />
       <div ref={mobileMenuRef} className=" hidden opacity-0 flex-col bg-teal-900 text-white items-center fixed inset-0 z-40 w-full h-screen transform transition-opacity duration-1000">
-        <button onClick={handleLoginBtnClick} className="flex mt-4 text-teal-400 items-center">
-          <UserIco />
-          <span className="text-sm ml-2">Log In</span>
-        </button >
-        <ul className="flex flex-col mt-6 text-center space-y-4">
-          <li><a className="inline-block px-2 py-1" onClick={toggleMenu} href="#about">About</a></li>
-          <li><a className="inline-block px-2 py-1" onClick={toggleMenu} href="#services">Services</a></li>
-          <li><a className="inline-block px-2 py-1" onClick={toggleMenu} href="#projects">Projects</a></li>
-          <li><a className="inline-block px-2 py-1" onClick={toggleMenu} href="#goodtoknow">Good To Know</a></li>
-          <li><a className="inline-block px-2 py-1" onClick={toggleMenu} href="#clients">Clients</a></li>
-          <li><a className="inline-block px-2 py-1" onClick={toggleMenu} href="#contact">Contact</a></li>
+        <LoginBtn />
+        <ul onClick={toggleMenu} className="flex flex-col mt-6 text-center space-y-4">
+          {
+            items.map((item, key) => getMobileMenuItem(item, key))
+          }
         </ul >
       </div >
     </nav >
-
   )
 }
 
