@@ -1,0 +1,28 @@
+.menu-icon {
+  margin: 0.5em;
+  width: 28px;
+}
+
+.menu-icon::after, 
+.menu-icon::before, 
+.menu-icon div {
+  background-color: #fff;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  height: 2px;
+  margin: 10px 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-active::before {
+  transform: translateY(13px) rotate(-45deg);
+}
+
+.menu-active::after {
+  transform: translateY(-12px) rotate(45deg);
+}
+
+.menu-active div {
+  transform: scale(0);
+}

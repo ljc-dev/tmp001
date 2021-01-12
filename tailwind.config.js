@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       colors: {
         teal: colors.teal,
+        orange: colors.orange,
+        red: colors.red,
       },
       fontFamily: {
         "open": ["OpenSans",],
