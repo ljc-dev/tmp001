@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import HamBtn from "./HamBtn"
 import LoginBtn from "./LoginBtn"
-import { Link, } from 'react-router-dom';
+import { Link, Redirect, useHistory, } from 'react-router-dom';
 
 const items = [
   { title: "About", path: "/about" },
@@ -29,11 +29,24 @@ function getMobileMenuItem(item, key) {
 const TopNav = () => {
   const mobileMenuRef = useRef(null)
   const menuBtnRef = useRef(null)
+  const history = useHistory()
+
+  function handleHomeClick() {
+    const path = history.location.pathname
+    if (path === "/") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })
+    } else {
+      return history.push("/")
+    }
+  }
 
   function toggleMenu() {
     if (menuBtnRef.current.classList.contains("menu-active")) {
       //show overflow
-      document.body.classList.remove("overflow-hidden")
+      document.documentElement.classList.remove("overflow-hidden")
       //hide menu
       menuBtnRef.current.classList.remove("menu-active")
       mobileMenuRef.current.classList.add("opacity-0")
@@ -43,7 +56,7 @@ const TopNav = () => {
       }, 700)
     } else {
       //hide overflow
-      document.body.classList.add("overflow-hidden")
+      document.documentElement.classList.add("overflow-hidden")
       //show menu
       menuBtnRef.current.classList.add("menu-active")
       mobileMenuRef.current.classList.add("flex")
@@ -56,7 +69,7 @@ const TopNav = () => {
 
   return (
     <nav className="flex bg-teal-900 text-white h-20 justify-center items-center fixed inset-x-0 top-0 z-20">
-      <a href="#home" className="uppercase text-lg sm:text-xl tracking-wider font-mont ml-6 md:ml-0">james <span className="text-teal-400">consulting</span></a>
+      <button onClick={handleHomeClick} className="uppercase text-lg sm:text-xl tracking-wider font-mont ml-6 md:ml-0">james <span className="text-teal-400">consulting</span></button>
       <ul className="hidden md:flex lg:ml-20 md:ml-4 md:text-sm lg:text-base">
         {
           items.map((item, key) => getDesktopMenuItem(item, key))

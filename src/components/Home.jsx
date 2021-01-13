@@ -1,12 +1,14 @@
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom"
+import { useAutoScrollToTop } from "../hooks/scrollToTop"
 import { checkInputValidity, removeValidOrNotMarker } from "../utils/formFcts"
+import Rellax from 'rellax'
+import { useEffect } from "react"
 
 const Home = () => {
-  const history = useHistory()
   useEffect(() => {
-    console.log(history.location.pathname)
-  })
+    new Rellax(".rellax", {})
+  }, [])
+
+  useAutoScrollToTop()
 
   return (
     <div className="" id="home">
@@ -64,7 +66,7 @@ const Home = () => {
             <img className="hidden md:block md:w-1/2 object-fill" src="./assets/map0.png" alt="500 Terry Francois Street, San Francisco, CA 94158" />
             <img className="md:hidden block mt-16 md:w-1/2 object-fill" src="./assets/map0-sm.png" alt="500 Terry Francois Street, San Francisco, CA 94158" />
             <div className="md:ml-8 lg:ml-12 w-full lg:w-96 md:w-80">
-              <p data-aos="fade-in">500 Terry Francois Street, San Francisco, CA 94158 <br />
+              <p data-aos="fade-in" >500 Terry Francois Street, San Francisco, CA 94158 <br />
               info@mysite.com  Tel: 123-456-7890</p>
               <form className="flex flex-col items-start mt-6 ">
                 <label htmlFor="firstName" className="capitalize pb-2">first name <span className="text-orange-200">*</span></label>
@@ -84,6 +86,7 @@ const Home = () => {
         </section >
       </div >
     </div >
+
   )
 }
 

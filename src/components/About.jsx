@@ -1,3 +1,5 @@
+import { useAutoScrollToTop } from "../hooks/scrollToTop"
+
 const personArr = [
   { src: "./assets/avatars/av2.png", name: "James Johnson", title: "Founder and Principal", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ad. Quod placeat fugiat odio, quidem odit aut voluptatibus omnis possimus dolores eligendi, dolor asperiores deserunt nobis nihil autem dolore corporis." },
   { src: "./assets/avatars/av1.png", name: "Samantha Jones", title: "Project Manager", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ad. Quod placeat fugiat odio, quidem odit aut voluptatibus omnis possimus dolores eligendi, dolor asperiores deserunt nobis nihil autem dolore corporis." },
@@ -7,7 +9,7 @@ const personArr = [
 
 function getCard(person, index) {
   return (
-    <div className="max-w-md" key={index}>
+    <div data-aos="fade-up" className="max-w-md" key={index}>
       <div className="flex h-32">
         <img className="w-32 h-32 object-cover" src={person.src} alt={person.name} />
         <p className="p-4 bg-teal-900 text-teal-50 flex-1 font-mont tracking-tighter">
@@ -23,6 +25,8 @@ function getCard(person, index) {
 }
 
 const About = () => {
+  useAutoScrollToTop()
+
   return (
     <div className="px-6 flex flex-col items-center">
       <div className="mt-20 flex flex-col items-center pt-8">

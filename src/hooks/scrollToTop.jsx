@@ -1,5 +1,13 @@
 import { useEffect, useRef } from "react"
 
+function useAutoScrollToTop() {
+  useEffect(() => {
+    //bug in firefox => scrollbar isn't reset. Only happens when coupled with overflow hidden toggle
+
+    window.scrollTo(0, 0)
+  }, [])
+}
+
 function useScrollToTop() {
   const scrollToTopRef = useRef(null)
 
@@ -12,7 +20,7 @@ function useScrollToTop() {
 }
 
 function handleScrollToTop() {
-  document.documentElement.scrollTo({
+  window.scrollTo({
     top: 0,
     behavior: "smooth",
   })
@@ -43,5 +51,5 @@ function handleScroll(scrollToTopRef) {
 }
 
 export {
-  useScrollToTop,
+  useScrollToTop, useAutoScrollToTop,
 }

@@ -1,24 +1,22 @@
-import { useEffect, } from "react"
 import smoothscroll from 'smoothscroll-polyfill'
-import Rellax from 'rellax'
-import AOS from 'aos'
 import 'aos/dist/aos.css'
+import AOS from 'aos'
 import TopNav from './components/TopNav'
 import Home from './components/Home'
-import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-import {
-  BrowserRouter as Router, Route, Switch,
-} from 'react-router-dom';
 import About from "./components/About"
 import Services from "./components/Services"
+import {
+  BrowserRouter as Router, Route, Switch,
+} from 'react-router-dom'
+import { useEffect } from 'react'
+import Footer from './components/Footer'
 
 function App() {
   smoothscroll.polyfill()
 
   useEffect(() => {
     AOS.init({})
-    new Rellax(".rellax", {})
   }, [])
 
   return (
