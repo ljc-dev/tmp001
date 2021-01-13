@@ -4,6 +4,7 @@ import Rellax from 'rellax'
 import { useEffect } from "react"
 
 const Home = () => {
+
   useEffect(() => {
     new Rellax(".rellax", {})
   }, [])

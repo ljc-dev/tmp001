@@ -1,11 +1,16 @@
 import { useEffect, useRef } from "react"
+import { useHistory } from "react-router-dom"
 
 function useAutoScrollToTop() {
+  const history = useHistory()
   useEffect(() => {
     //bug in firefox => scrollbar isn't reset. Only happens when coupled with overflow hidden toggle
 
-    window.scrollTo(0, 0)
-  }, [])
+    //scroll to top only if no hash 
+    if (history.location.hash === "") {
+      window.scrollTo(0, 0)
+    }
+  })
 }
 
 function useScrollToTop() {

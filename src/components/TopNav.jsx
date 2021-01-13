@@ -1,7 +1,8 @@
-import { useRef } from "react"
-import HamBtn from "./HamBtn"
-import LoginBtn from "./LoginBtn"
-import { Link, Redirect, useHistory, } from 'react-router-dom';
+import { useRef } from "react";
+import { useHistory } from 'react-router-dom';
+import HamBtn from "./HamBtn";
+import LoginBtn from "./LoginBtn";
+import { HashLink as Link } from 'react-router-hash-link';
 
 const items = [
   { title: "About", path: "/about" },
@@ -15,14 +16,14 @@ const items = [
 function getDesktopMenuItem(item, key) {
   const { title, path } = item
   return (
-    <li key={key}><Link to={path} className="py-2 md:mx-2 lg:mx-4 border-b-2 border-teal-900 hover:border-gray-100" >{title}</Link></li>
+    <li key={key}><Link smooth to={path} className="py-2 md:mx-2 lg:mx-4 border-b-2 border-teal-900 hover:border-gray-100" >{title}</Link></li>
   )
 }
 
 function getMobileMenuItem(item, key) {
   const { title, path } = item
   return (
-    <li key={key}><Link to={path} className="inline-block px-1 py-1 border-b-2 border-teal-900 hover:border-gray-100" >{title}</Link></li>
+    <li key={key}><Link smooth to={path} className="inline-block px-1 py-1 border-b-2 border-teal-900 hover:border-gray-100" >{title}</Link></li>
   )
 }
 
