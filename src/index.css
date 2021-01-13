@@ -20,3 +20,9 @@
     scroll-behavior: smooth;
   }
 }
+
+@layer utilities {
+  .darken:hover {
+    filter: brightness(85%) contrast(115%);
+  }
+}

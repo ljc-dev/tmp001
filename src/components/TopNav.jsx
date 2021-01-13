@@ -1,27 +1,28 @@
 import { useRef } from "react"
 import HamBtn from "./HamBtn"
 import LoginBtn from "./LoginBtn"
+import { Link, } from 'react-router-dom';
 
 const items = [
-  { title: "About", path: "about" },
-  { title: "Services", path: "about" },
-  { title: "Projects", path: "projects" },
-  { title: "Good To Know", path: "good-to-know" },
-  { title: "Clients", path: "clients" },
-  { title: "Contact", path: "contact" },
+  { title: "About", path: "/about" },
+  { title: "Services", path: "/services" },
+  { title: "Projects", path: "/projects" },
+  { title: "Good To Know", path: "/good-to-know" },
+  { title: "Clients", path: "/clients" },
+  { title: "Contact", path: "/#contact" },
 ]
 
 function getDesktopMenuItem(item, key) {
   const { title, path } = item
   return (
-    <li key={key}><a className="py-2 md:mx-2 lg:mx-4 border-b-2 border-teal-900 hover:border-gray-100" href={`#${path}`}>{title}</a></li>
+    <li key={key}><Link to={path} className="py-2 md:mx-2 lg:mx-4 border-b-2 border-teal-900 hover:border-gray-100" >{title}</Link></li>
   )
 }
 
 function getMobileMenuItem(item, key) {
   const { title, path } = item
   return (
-    <li key={key}><a className="inline-block px-1 py-1 border-b-2 border-teal-900 hover:border-gray-100" href={`#${path}`}>{title}</a></li>
+    <li key={key}><Link to={path} className="inline-block px-1 py-1 border-b-2 border-teal-900 hover:border-gray-100" >{title}</Link></li>
   )
 }
 

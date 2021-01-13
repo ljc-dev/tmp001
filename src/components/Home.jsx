@@ -1,6 +1,13 @@
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom"
 import { checkInputValidity, removeValidOrNotMarker } from "../utils/formFcts"
 
 const Home = () => {
+  const history = useHistory()
+  useEffect(() => {
+    console.log(history.location.pathname)
+  })
+
   return (
     <div className="" id="home">
       <div data-rellax-speed="-10" data-rellax-xs-speed="-5" data-rellax-mobile-speed="-5" className="rellax bg-hero bg-no-repeat h-96 pt-16 md:pt-0 md:h-screen w-full bg-cover z-0" ></div >
