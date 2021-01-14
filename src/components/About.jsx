@@ -27,12 +27,13 @@ function getCard(person, index) {
 const About = () => {
   useAutoScrollToTop()
 
+
   return (
-    <div className="px-6 flex flex-col items-center">
+    <div data-aos="fade-in" className="px-6 flex flex-col items-center">
       <div className="mt-20 flex flex-col items-center pt-8">
         <h1 className="uppercase text-5xl font-mont text-teal-900">about</h1>
         <div className="w-20 h-1.5 bg-teal-900 mt-3"></div>
-        <p className=" mt-8 text-center text-teal-900 md:w-2/3 lg:w-3/5">
+        <p className=" mt-4 md:mt-12 text-center text-teal-900 md:w-2/3 lg:w-3/5 font-open leading-relaxed">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam facere nihil ipsum ex laborum, minus voluptate beatae deleniti voluptatibus quia velit distinctio quibusdam maiores, reprehenderit dolores. Error saepe eius est volupt saepe.
           </p>
       </div>

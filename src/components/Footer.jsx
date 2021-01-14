@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import FacebookIco from "../icons/facebookIco"
 import TwitterIco from "../icons/twitterIco"
 
 const Footer = () => {
+  useEffect(() => {
+    console.log("render footer")
+  }, []);
   return (
     <footer className="bg-teal-900 text-teal-50">
       <div data-aos="fade-in" className="text-sm w-full md:grid md:grid-cols-11 flex flex-col text-center items-center md:items-start md:text-left pt-12 pb-8 md:py-16">

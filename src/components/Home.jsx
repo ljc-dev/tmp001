@@ -12,7 +12,7 @@ const Home = () => {
   useAutoScrollToTop()
 
   return (
-    <div className="" id="home">
+    <div data-aos="fade-in" className="" id="home">
       <div data-rellax-speed="-10" data-rellax-xs-speed="-5" data-rellax-mobile-speed="-5" className="rellax bg-hero bg-no-repeat h-96 pt-16 md:pt-0 md:h-screen w-full bg-cover z-0" ></div >
       <div className="relative z-10">
         <div className="flex flex-col items-center py-6 bg-opacity-70 bg-white">

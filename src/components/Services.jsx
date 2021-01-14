@@ -9,14 +9,14 @@ const serviceArr = [
 function getCard(service, index) {
   return (
     <div key={index} className="flex flex-col w-72 text-center text-teal-900 border">
-      <button>
+      <button className="focus:outline-none">
         <div className="darken w-72 h-48 bg-cover" style={{ backgroundImage: `url(${service.src})` }}></div>
       </button>
       <div className="flex flex-col py-6 px-4 md:h-64">
-        <p className="uppercase text-xl md:text-2xl font-mont tracking-tight">{service.title}</p>
+        <button className="uppercase text-xl md:text-2xl font-mont tracking-tight hover:opacity-60 transition-opacity transform duration-100 ease-linear focus:outline-none">{service.title}</button>
         <p className="mt-4">{service.time}</p>
         <p className="md:mt-2">{service.price}</p>
-        <button className="darken capitalize bg-teal-900 text-teal-50 py-2 mt-6 md:mt-auto md:w-32 md:mx-auto hover:opacity-70 transition-opacity transform duration-300 ease-linear">book now</button>
+        <button className="darken capitalize bg-teal-900 text-teal-50 py-2 mt-6 md:mt-auto md:w-32 md:mx-auto hover:opacity-70 transition-opacity transform duration-300 ease-linear focus:outline-none">book now</button>
       </div>
     </div>
   )
@@ -26,7 +26,7 @@ const Services = () => {
   useAutoScrollToTop()
 
   return (
-    <div className="px-6 flex flex-col items-center">
+    <div data-aos="fade-in" className="px-6 flex flex-col items-center">
       <div className="mt-20 flex flex-col items-center pt-8">
         <h1 className="uppercase text-5xl font-mont text-teal-900">services</h1>
         <div className="w-20 h-1.5 bg-teal-900 mt-3"></div>

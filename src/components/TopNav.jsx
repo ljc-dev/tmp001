@@ -39,6 +39,7 @@ const TopNav = () => {
         top: 0,
         behavior: "smooth",
       })
+      return window.history.replaceState({ to: "home" }, "", "/",)
     } else {
       return history.push("/")
     }
@@ -80,7 +81,7 @@ const TopNav = () => {
         <LoginBtn />
       </div>
       <HamBtn menuToggleCallback={toggleMenu} ref={menuBtnRef} />
-      <div ref={mobileMenuRef} className=" hidden opacity-0 flex-col bg-teal-900 text-white items-center fixed inset-0 z-40 w-full h-screen transform transition-opacity duration-1000">
+      <div ref={mobileMenuRef} className=" hidden opacity-0 flex-col bg-teal-900 text-white items-center fixed inset-0 z-40 w-full h-screen transform transition-opacity duration-700">
         <LoginBtn />
         <ul onClick={toggleMenu} className="flex flex-col mt-6 text-center space-y-4">
           {
