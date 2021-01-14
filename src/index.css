@@ -15,6 +15,12 @@
     font-weight: 400;
     src: url(./fonts/OpenSans-Regular.ttf) format("truetype");
   }
+  
+  @font-face {
+    font-family: OpenSans;
+    font-style: italic;
+    src: url(./fonts/OpenSans-Italic.ttf) format("truetype");
+  }
 }
 
 @layer utilities {
