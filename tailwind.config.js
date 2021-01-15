@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         "open": ["OpenSans",],
         "mont": ["Montserrat",],
+        "rale": ["Raleway",],
       },
       backgroundImage: theme => ({
         'hero': "url('./images/bg-hero.jpg')",

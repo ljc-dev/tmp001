@@ -21,6 +21,18 @@
     font-style: italic;
     src: url(./fonts/OpenSans-Italic.ttf) format("truetype");
   }
+  
+  @font-face {
+    font-family: Raleway;
+    font-weight: 400;
+    src: url(./fonts/Raleway-Regular.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: Raleway;
+    font-weight: 700;
+    src: url(./fonts/Raleway-Bold.ttf) format("truetype");
+  }
 }
 
 @layer utilities {

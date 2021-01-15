@@ -19,22 +19,24 @@ const Home = () => {
           <p className="uppercase text-sm md:text-base lg:text-lg text-teal-900 font-mont">developing innovative strategies</p>
           <h1 className="mt-2 uppercase text-3xl md:text-4xl lg:text-6xl text-teal-900 font-mont tracking-tighter">achieving growth</h1>
         </div >
-        <section className="md:flex hidden justify-center bg-white text-center pt-16 pb-12 space-x-10">
-          <div className="bg-teal-800 w-80 p-8 text-white">
-            <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">services</h2>
-            <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
-            <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
-          </div >
-          <div className="bg-teal-800 w-80 p-8  text-white">
-            <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">projects</h2>
-            <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
-            <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
-          </div >
-          <div className="bg-teal-800 w-80 p-8  text-white">
-            <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">clients</h2>
-            <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
-            <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
-          </div >
+        <section className="hidden md:block bg-white">
+          <div className="grid grid-cols-3 max-w-screen-lg mx-auto md:gap-x-4 lg:gap-x-10 pt-20 pb-12">
+            <div className="bg-teal-800 w-full md:p-4 lg:p-8 text-center text-white">
+              <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">services</h2>
+              <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
+              <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
+            </div >
+            <div className="bg-teal-800 w-full md:p-4 lg:p-8 text-center text-white">
+              <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">projects</h2>
+              <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
+              <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
+            </div >
+            <div className="bg-teal-800 w-full md:p-4 lg:p-8 text-center text-white">
+              <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">clients</h2>
+              <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
+              <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
+            </div >
+          </div>
         </section >
         <section className="flex md:hidden flex-col justify-center bg-white text-center space-y-px">
           <div data-aos="fade-up" data-aos-anchor="#home" className="bg-teal-800 p-8 text-white">
