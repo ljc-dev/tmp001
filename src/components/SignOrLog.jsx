@@ -39,12 +39,14 @@ const SignOrLog = () => {
       formSignBtnRef.current.innerText = "log in"
       questionRef.current.innerText = "New to this site?"
       communityRef.current.classList.add("hidden")
+      forgotPassRef.current.classList.remove("hidden")
     } else {
       e.target.innerText = "log in"
       titleRef.current.innerText = "sign up"
       formSignBtnRef.current.innerText = "sign up"
       questionRef.current.innerText = "Already a member?"
       communityRef.current.classList.remove("hidden")
+      forgotPassRef.current.classList.add("hidden")
     }
   }
 
@@ -64,7 +66,7 @@ const SignOrLog = () => {
           <input className="font-open border-b border-teal-600" type="email" name="myEmail" id="emailId" />
           <label className="mt-10 capitalize text-teal-600" htmlFor="passwordId">password</label>
           <input className="font-open border-b border-teal-600 mb-10" type="password" name="myPassword" id="passwordId" />
-          <button onClick={handleForgotPass} className="self-start underline mb-4 text-teal-800 hover:text-teal-700" ref={forgotPassRef}>Forgot Password?</button>
+          <button ref={forgotPassRef} onClick={handleForgotPass} className="hidden self-start underline mb-4 text-teal-800 hover:text-teal-700">Forgot Password?</button>
           <button ref={formSignBtnRef} className=" bg-teal-600 text-teal-50 w-full py-3 capitalize font-open">
             sign up
           </button>
