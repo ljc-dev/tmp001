@@ -39,7 +39,7 @@ const Home = () => {
             </div >
           </div>
         </section >
-        <section id="about" className=" py-20 flex items-center flex-col bg-teal-50 text-teal-900 text-center">
+        <section data-aos="sm-fade-up" id="about" className=" py-20 flex items-center flex-col bg-teal-50 text-teal-900 text-center">
           <div data-aos="fade-in">
             <h2 className="uppercase text-4xl md:text-5xl lg:text-6xl font-mont">about us</h2>
             <p className="max-w-screen-sm mt-16 px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis porro facere nemo ex repellendus blanditiis nisi voluptas earum exceptzuri aut ex nihil consequatur ab molestiae inventore, placeat cum providentex praesentaium incidunt ipsa quibusidam aliquam ab ex!</p>
@@ -47,7 +47,7 @@ const Home = () => {
             <button className="capitalize tracking-wide font-open bg-teal-900 py-2 px-8 text-teal-50 mt-16 md:mt-10">read more</button>
           </div >
         </section >
-        <section id="contact" className=" pt-20 md:pb-28 flex items-center flex-col bg-teal-900 text-teal-50 text-center">
+        <section data-aos="sm-fade-up" id="contact" className=" pt-20 md:pb-28 flex items-center flex-col bg-teal-900 text-teal-50 text-center">
           <h2 data-aos="fade-in" className="uppercase text-4xl md:text-5xl lg:text-6xl font-mont">contact us</h2>
           <div className="flex flex-col-reverse md:flex-row mt-16 px-4">
             <img className="hidden md:block md:w-1/2 object-fill" src="./assets/map0.png" alt="500 Terry Francois Street, San Francisco, CA 94158" />

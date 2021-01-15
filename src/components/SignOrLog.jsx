@@ -25,6 +25,10 @@ const SignOrLog = () => {
     return () => document.documentElement.classList.remove("overflow-hidden")
   }, [])
 
+  useEffect(() => {
+    mainEmailInputRef.current.focus()
+  }, [])
+
   function handleCloseClick() {
     setShowSignPopup(false)
   }
@@ -58,6 +62,14 @@ const SignOrLog = () => {
       communityRef.current.classList.remove("hidden")
       forgotPassRef.current.classList.add("hidden")
     }
+    //reset form
+    mainFormRef.current.reset()
+    mainEmailErrorRef.current.classList.add("opacity-0")
+    mainEmailInputRef.current.classList.add("border-teal-600")
+    mainEmailInputRef.current.classList.remove("border-red-500")
+    mainPasswordInputRef.current.classList.add("border-teal-600")
+    mainPasswordInputRef.current.classList.remove("border-red-500")
+    mainPasswordErrorRef.current.classList.add("opacity-0")
   }
 
   function handleForgotPass(e) {
@@ -65,6 +77,7 @@ const SignOrLog = () => {
     mainSignRef.current.classList.add("hidden")
     forgotSignRef.current.classList.add("flex")
     forgotSignRef.current.classList.remove("hidden")
+    passEmailInputRef.current.focus()
   }
 
   function handleMainFormSubmit(e) {
@@ -134,7 +147,7 @@ const SignOrLog = () => {
   return (
     <div className="bg-white fixed inset-0 z-50 px-6 flex flex-col items-center w-full h-screen overflow-auto">
       <div ref={forgotSignRef} className="hidden flex-col items-center justify-center h-full pt-8">
-        <h1 className="capitalize text-5xl md:text-5xl tracking-tight font-rale text-teal-900">create new password</h1>
+        <h1 className="capitalize text-5xl md:text-5xl tracking-tight font-rale text-teal-900 text-center">create new password</h1>
         <p className="mt-6 text-xl tracking-tight font-open text-teal-700">Please enter your email address</p>
         <form onSubmit={handlePassFormSubmit} className="mt-12 flex flex-col w-80">
           <label className="capitalize text-teal-600" htmlFor="passEmailId">email</label>
@@ -169,7 +182,7 @@ const SignOrLog = () => {
         </div>
         <p ref={readMoreTextRef} className="hidden text-teal-900 text-center max-w-lg">Connect with members of our site. Leave comments, follow people and more. Your nickname, profile image, and public activity will be visible on our site.</p>
       </div>
-      <button onClick={handleCloseClick} className="w-8 h-8 absolute top-12 right-16">
+      <button onClick={handleCloseClick} className="w-8 h-8 absolute top-6 right-6 md:top-12 md:right-16">
         <span className="sr-only">close</span>
         <CrossIco />
       </button>
