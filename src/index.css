@@ -39,4 +39,17 @@
   .darken:hover {
     filter: brightness(85%) contrast(115%);
   }
+
+  @media (max-width:640px) {
+    [data-aos="sm-fade-up"] {
+      opacity: 0;
+      transition-property: opacity, transform;
+      transform: translate3d(0, 100px, 0);
+    }
+
+    [data-aos="sm-fade-up"].aos-animate {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }

@@ -2,6 +2,7 @@ import { useAutoScrollToTop } from "../hooks/scrollToTop"
 import { checkInputValidity, removeValidOrNotMarker } from "../utils/formFcts"
 import Rellax from 'rellax'
 import { useEffect } from "react"
+import "./customAOS.css"
 
 const Home = () => {
 
@@ -13,47 +14,30 @@ const Home = () => {
 
   return (
     <div data-aos="fade-in" className="" id="home">
-      <div data-rellax-speed="-10" data-rellax-xs-speed="-5" data-rellax-mobile-speed="-5" className="rellax bg-hero bg-no-repeat h-96 pt-16 md:pt-0 md:h-screen w-full bg-cover z-0" ></div >
+      <div data-rellax-speed="-10" data-rellax-xs-speed="-3" data-rellax-mobile-speed="-5" className="rellax bg-hero bg-no-repeat h-96 pt-16 md:pt-0 md:h-screen w-full bg-cover z-0" ></div >
       <div className="relative z-10">
-        <div className="flex flex-col items-center py-6 bg-opacity-70 bg-white">
+        <div className="flex flex-col items-center py-6 bg-opacity-70 bg-white text-center">
           <p className="uppercase text-sm md:text-base lg:text-lg text-teal-900 font-mont">developing innovative strategies</p>
           <h1 className="mt-2 uppercase text-3xl md:text-4xl lg:text-6xl text-teal-900 font-mont tracking-tighter">achieving growth</h1>
         </div >
-        <section className="hidden md:block bg-white">
-          <div className="grid grid-cols-3 max-w-screen-lg mx-auto md:gap-x-4 lg:gap-x-10 pt-20 pb-12">
-            <div className="bg-teal-800 w-full md:p-4 lg:p-8 text-center text-white">
+        <section className="bg-white md:pt-20 md:pb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 max-w-screen-lg mx-auto gap-y-px sm:gap-y-8 sm:py-8 md:py-0 md:gap-y-0 md:gap-x-4 lg:gap-x-10">
+            <div data-aos="sm-fade-up" data-aos-anchor="#home" className="bg-teal-800 max-w-xl mx-auto w-full p-8 md:p-4 lg:p-8 text-center text-white">
               <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">services</h2>
               <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
               <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
             </div >
-            <div className="bg-teal-800 w-full md:p-4 lg:p-8 text-center text-white">
+            <div data-aos="sm-fade-up" className="bg-teal-800 max-w-xl mx-auto w-full p-8 md:p-4 lg:p-8 text-center text-white">
               <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">projects</h2>
               <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
               <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
             </div >
-            <div className="bg-teal-800 w-full md:p-4 lg:p-8 text-center text-white">
+            <div data-aos="sm-fade-up" className="bg-teal-800 max-w-xl mx-auto w-full p-8 md:p-4 lg:p-8 text-center text-white">
               <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">clients</h2>
               <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
               <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
             </div >
           </div>
-        </section >
-        <section className="flex md:hidden flex-col justify-center bg-white text-center space-y-px">
-          <div data-aos="fade-up" data-aos-anchor="#home" className="bg-teal-800 p-8 text-white">
-            <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">services</h2>
-            <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
-            <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
-          </div >
-          <div data-aos="fade-up" className="bg-teal-800 p-8 text-white">
-            <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">projects</h2>
-            <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
-            <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
-          </div >
-          <div data-aos="fade-up" className="bg-teal-800 p-8 text-white">
-            <h2 className="text-2xl uppercase tracking-wider font-mont text-gray-300">clients</h2>
-            <p className="mt-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, recusandae ducimus. Natus dolores praesentium possimus voluptatem eos maiores pariatur iusto harum voluptatibus obcaecati iste similique vitae, dolorum tempora odio doloribus?</p>
-            <button className="capitalize mt-8 bg-teal-600 py-2 px-8 tracking-wide">more info</button>
-          </div >
         </section >
         <section id="about" className=" py-20 flex items-center flex-col bg-teal-50 text-teal-900 text-center">
           <div data-aos="fade-in">

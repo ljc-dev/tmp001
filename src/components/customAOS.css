@@ -1,12 +1,24 @@
 
-[data-aos="anim1"] {
-  transform: skewX(45deg);
-  opacity: 0;
-  transition-property: transform, opacity;
-}
+    [data-aos="sm-fade-in"] {
+      opacity: 0;
+      transition-property: opacity, transform;
+      transform: translate3d(0, 100px, 0);
+    }
 
+    [data-aos="sm-fade-in"].aos-animate {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
 
-[data-aos="anim1"].aos-animate {
-  transform: skewX(0);
-  opacity: 1;
-}
+    @media (min-width: 768px) {
+      [data-aos="sm-fade-in"] {
+        opacity: 0;
+        transition-property: opacity, transform;
+        transform: translate3d(0, 100px, 0);
+      }
+  
+      [data-aos="sm-fade-in"].aos-animate {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
