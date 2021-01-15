@@ -8,6 +8,7 @@ import Clients from './components/Clients'
 import Footer from './components/Footer'
 import GoodToKnow from './components/GoodToKnow'
 import Home from './components/Home'
+import ProjectDetails from './components/ProjectDetails'
 import Projects from './components/Projects'
 import ScrollToTop from './components/ScrollToTop'
 import Services from "./components/Services"
@@ -33,8 +34,11 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/services">
+          <Route exact path="/services">
             <Services />
+          </Route>
+          <Route path="/services/:project">
+            <ProjectDetails />
           </Route>
           <Route path="/projects">
             <Projects />

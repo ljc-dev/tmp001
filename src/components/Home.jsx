@@ -1,16 +1,24 @@
 import { useAutoScrollToTop } from "../hooks/scrollToTop"
 import { checkInputValidity, removeValidOrNotMarker } from "../utils/formFcts"
 import Rellax from 'rellax'
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import "./customAOS.css"
 
 const Home = () => {
-
+  const formConfirmMsgRef = useRef(null)
   useEffect(() => {
     new Rellax(".rellax", {})
   }, [])
 
   useAutoScrollToTop()
+
+  function handleContactFormSubmit(e) {
+    e.preventDefault()
+    formConfirmMsgRef.current.classList.remove("opacity-0")
+    setTimeout(() => {
+      formConfirmMsgRef.current.classList.add("opacity-0")
+    }, 2000)
+  }
 
   return (
     <div data-aos="fade-in" className="" id="home">
@@ -55,7 +63,7 @@ const Home = () => {
             <div className="md:ml-8 lg:ml-12 w-full lg:w-96 md:w-80">
               <p data-aos="fade-in" >500 Terry Francois Street, San Francisco, CA 94158 <br />
               info@mysite.com  Tel: 123-456-7890</p>
-              <form className="flex flex-col items-start mt-6 ">
+              <form onSubmit={handleContactFormSubmit} className="flex flex-col items-start mt-6 ">
                 <label htmlFor="firstName" className="capitalize pb-2">first name <span className="text-orange-200">*</span></label>
                 <input onChange={removeValidOrNotMarker} onBlur={checkInputValidity} className="w-full py-1 px-3 text-teal-900 hover:bg-teal-50" type="text" placeholder="First Name" required name="firstName" id="firstName" />
                 <label htmlFor="lastName" className="capitalize pb-2">last name</label>
@@ -66,14 +74,14 @@ const Home = () => {
                 <input className="w-full py-1 px-3 text-teal-900 hover:bg-teal-50" type="text" placeholder="Subject" name="subject" id="subject" />
                 <label htmlFor="message" className="capitalize pb-2">message</label>
                 <textarea className="h-32 w-full py-1 px-3 resize-none text-teal-900 hover:bg-teal-50" placeholder="Type your message here..." name="message" id="message" />
-                <button type="submit" className="capitalize self-end tracking-wide bg-teal-700 mt-4 py-1 px-8 text-teal-50">submit</button>
+                <button type="submit" className="capitalize self-end tracking-wide bg-teal-700 mt-4 py-1 text-center w-40 text-teal-50">submit</button>
+                <p ref={formConfirmMsgRef} className="self-end mt-2 text-teal-50 text-sm font-mont opacity-0">Thanks for submitting!</p>
               </form>
             </div >
           </div >
         </section >
       </div >
     </div >
-
   )
 }
 
