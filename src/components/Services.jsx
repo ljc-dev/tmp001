@@ -10,11 +10,11 @@ const serviceArr = [
 function getCard(service, currentUrl) {
   return (
     <div key={service.projectId} className="flex flex-col w-72 text-center text-teal-900 border">
-      <Link to={`${currentUrl}/${service.projectId}`} className="focus:outline-none">
+      <Link to={`${currentUrl}/${service.projectId}`}>
         <div className="darken w-72 h-48 bg-cover" style={{ backgroundImage: `url(${service.src})` }}></div>
       </Link>
       <div className="flex flex-col py-6 px-4 md:h-64">
-        <button className="uppercase text-xl md:text-2xl font-mont tracking-tight hover:opacity-60 transition-opacity transform duration-100 ease-linear focus:outline-none">{service.title}</button>
+        <Link to={`${currentUrl}/${service.projectId}`} className="uppercase text-xl md:text-2xl font-mont tracking-tight hover:opacity-60 transition-opacity transform duration-100 ease-linear">{service.title}</Link>
         <p className="mt-4">{service.time}</p>
         <p className="md:mt-2">{service.price}</p>
         <button className="darken capitalize bg-teal-900 text-teal-50 py-2 mt-6 md:mt-auto md:w-32 md:mx-auto hover:opacity-70 transition-opacity transform duration-300 ease-linear focus:outline-none">book now</button>

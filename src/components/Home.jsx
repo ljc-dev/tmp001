@@ -3,8 +3,10 @@ import { checkInputValidity, removeValidOrNotMarker } from "../utils/formFcts"
 import Rellax from 'rellax'
 import { useEffect, useRef } from "react"
 import "./customAOS.css"
+import { useHistory } from "react-router-dom"
 
 const Home = () => {
+  const history = useHistory()
   const formConfirmMsgRef = useRef(null)
   useEffect(() => {
     new Rellax(".rellax", {})
@@ -18,6 +20,11 @@ const Home = () => {
     setTimeout(() => {
       formConfirmMsgRef.current.classList.add("opacity-0")
     }, 2000)
+    e.target.reset()
+  }
+
+  function handleReadMoreAboutClick() {
+    return history.push("/about")
   }
 
   return (
@@ -52,7 +59,7 @@ const Home = () => {
             <h2 className="uppercase text-4xl md:text-5xl lg:text-6xl font-mont">about us</h2>
             <p className="max-w-screen-sm mt-16 px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis porro facere nemo ex repellendus blanditiis nisi voluptas earum exceptzuri aut ex nihil consequatur ab molestiae inventore, placeat cum providentex praesentaium incidunt ipsa quibusidam aliquam ab ex!</p>
             <p className="max-w-screen-sm mt-4 px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis porro facere nemo ex repellendus blanditiis nisi voluptas earum exceptzuri aut ex nihil consequatur ab molestiae inventore, placeat cum providentex praesentaium incidunt ipsa quibusidam aliquam ab ex deux culpa mae.</p>
-            <button className="capitalize tracking-wide font-open bg-teal-900 py-2 px-8 text-teal-50 mt-16 md:mt-10">read more</button>
+            <button onClick={handleReadMoreAboutClick} className="capitalize tracking-wide font-open bg-teal-900 py-2 px-8 text-teal-50 mt-16 md:mt-10">read more</button>
           </div >
         </section >
         <section data-aos="sm-fade-up" id="contact" className=" pt-20 md:pb-28 flex items-center flex-col bg-teal-900 text-teal-50 text-center">
