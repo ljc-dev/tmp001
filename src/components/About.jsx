@@ -12,10 +12,10 @@ function getCard(person, index) {
     <div data-aos="fade-up" className="max-w-md" key={index}>
       <div className="flex h-32">
         <img className="w-32 h-32 object-cover" src={person.src} alt={person.name} />
-        <p className="p-4 bg-teal-900 text-teal-50 flex-1 font-mont tracking-tighter">
-          {person.name}<br />
-          {person.title}
-        </p>
+        <div className="p-4 bg-teal-900 text-teal-50 flex-1 font-mont tracking-tighter md:text-2xl flex flex-col md:justify-center">
+          <p>{person.name}</p>
+          <p>{person.title}</p>
+        </div>
       </div>
       <p className=" mt-4 text-left text-sm text-teal-900 leading-relaxed tracking-wide">
         {person.desc}

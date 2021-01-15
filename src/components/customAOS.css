@@ -1,0 +1,12 @@
+
+[data-aos="anim1"] {
+  transform: skewX(45deg);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+
+[data-aos="anim1"].aos-animate {
+  transform: skewX(0);
+  opacity: 1;
+}

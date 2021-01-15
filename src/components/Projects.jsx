@@ -15,7 +15,7 @@ function getCard(project) {
       </div>
       <div className="-mt-1 flex flex-col pt-8 md:pt-0 pb-6 md:pb-0 md:h-auto md:pl-10 md:max-w-screen-sm">
         <p className=" uppercase text-left text-2xl md:text-3xl font-mont tracking-tighter">{project.title}</p>
-        <p className=" mt-2 text-teal-900 font-open">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsam ullam eligendi impedit culpa cupiditate accusantium. Officiis itaque modi fugit? Nostrum eos velit aliquam praesentium rem voluptatibus commodi distinctio ab.</p>
+        <p className=" mt-2 md:mt-6 text-teal-900 font-open">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ipsam ullam eligendi impedit culpa cupiditate accusantium. Officiis itaque modi fugit? Nostrum eos velit aliquam praesentium rem voluptatibus commodi distinctio ab.</p>
       </div>
     </div>
   )

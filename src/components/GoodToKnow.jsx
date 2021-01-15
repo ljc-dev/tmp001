@@ -1,5 +1,5 @@
 import { useAutoScrollToTop } from "../hooks/scrollToTop";
-
+import './customAOS.css';
 const clientsArr = [
   { src: "./assets/brands/b1.svg", name: "client 1" },
   { src: "./assets/brands/b2.svg", name: "client 2" },

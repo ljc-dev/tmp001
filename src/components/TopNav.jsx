@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { useHistory } from 'react-router-dom';
 import HamBtn from "./HamBtn";
 import LoginBtn from "./LoginBtn";
 import { HashLink as Link } from 'react-router-hash-link';
+import { SignContext } from "../hooks/signContext";
 
 const items = [
   { title: "About", path: "/about" },
@@ -31,6 +32,7 @@ const TopNav = () => {
   const mobileMenuRef = useRef(null)
   const menuBtnRef = useRef(null)
   const history = useHistory()
+  const { showSignPopup, setShowSignPopup } = useContext(SignContext)
 
   function handleHomeClick() {
     const path = history.location.pathname
@@ -69,6 +71,10 @@ const TopNav = () => {
     }
   }
 
+  function handleLoginClick() {
+    setShowSignPopup(true)
+  }
+
   return (
     <nav className="flex bg-teal-900 text-white h-20 justify-center items-center fixed inset-x-0 top-0 z-20">
       <button onClick={handleHomeClick} className="uppercase text-lg sm:text-xl tracking-wider font-mont ml-6 md:ml-0">james <span className="text-teal-400">consulting</span></button>
@@ -78,11 +84,11 @@ const TopNav = () => {
         }
       </ul>
       <div className="hidden md:flex">
-        <LoginBtn />
+        <LoginBtn handleClick={handleLoginClick} />
       </div>
       <HamBtn menuToggleCallback={toggleMenu} ref={menuBtnRef} />
       <div ref={mobileMenuRef} className=" hidden opacity-0 flex-col bg-teal-900 text-white items-center fixed inset-0 z-40 w-full h-screen transform transition-opacity duration-700">
-        <LoginBtn />
+        <LoginBtn handleClick={handleLoginClick} />
         <ul onClick={toggleMenu} className="flex flex-col mt-6 text-center space-y-4">
           {
             items.map((item, key) => getMobileMenuItem(item, key))
