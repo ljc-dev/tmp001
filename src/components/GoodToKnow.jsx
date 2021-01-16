@@ -8,7 +8,6 @@ import DotsVertical from "../icons/dotsVertical";
 import PlusIco from "../icons/plusIco";
 import SearchIco from "../icons/searchIco";
 import { sortGoods } from "../utils/sortGoodsFns";
-import './customAOS.css';
 import Good from "./Good";
 
 const initialSortingMenuItems = [
