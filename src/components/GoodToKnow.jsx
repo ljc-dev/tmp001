@@ -5,11 +5,11 @@ import ArrowDownIco from "../icons/arrowDownIco";
 import ArrowUpIco from "../icons/arrowUpIco";
 import CaretDownIco from "../icons/caretDownIco";
 import DotsVertical from "../icons/dotsVertical";
-import FolderIco from "../icons/folderIco";
 import PlusIco from "../icons/plusIco";
 import SearchIco from "../icons/searchIco";
-import StarIco from "../icons/starIco";
+import { sortGoods } from "../utils/sortGoodsFns";
 import './customAOS.css';
+import Good from "./Good";
 
 const initialSortingMenuItems = [
   { title: "name", upDownNot: "not" },
@@ -19,10 +19,6 @@ const initialSortingMenuItems = [
   { title: "file type", upDownNot: "not" },
   { title: "file size", upDownNot: "not" },
 ]
-
-function replaceCurrentSortItemsTitle(newSortingTitle, ref) {
-  ref.current.innerText = newSortingTitle
-}
 
 const goods = [
   {
@@ -62,23 +58,6 @@ const goods = [
   },
 ]
 
-function getGood(good, index, handleFavoriteClick) {
-  console.log(good.fileTitle)
-  return (
-    <div key={index} className="flex justify-between py-6 border-b border-gray-300">
-      <div className="flex flex-col">
-        <p>{good.fileTitle}</p>
-        <p className="text-sm">{good.views} views, {good.lastUpdated}</p>
-        <p className="mt-1 flex items-center space-x-1.5"><FolderIco /> <span>{good.children ? `${good.children.length} item${good.children.length > 1 ? "s" : ""}` : `${good.fileType}`}</span></p>
-      </div>
-      <div className="flex flex-col justify-between items-center">
-        <DotsVertical />
-        <p className="flex items-center space-x-1.5"><span>0</span><button onClick={handleFavoriteClick}><StarIco /></button></p>
-      </div>
-    </div>
-  )
-}
-
 const GoodToKnow = () => {
   const { showSignPopup, setShowSignPopup } = useContext(SignContext)
   const sortingMenuRef = useRef(null)
@@ -102,14 +81,10 @@ const GoodToKnow = () => {
       }
       currentNode = currentNode.parentNode
     }
-    // console.log("new title", newSortingTitle)
+    console.log("new title", newSortingTitle)
     sortingMenuRef.current.classList.add("hidden")
     updateSortingMenuTitle(newSortingTitle)
     updateSortingMenuItems(newSortingTitle)
-  }
-
-  function handleFavoriteClick() {
-    // go to login
   }
 
   function updateSortingMenuItems(newSortingTitle) {
@@ -153,44 +128,48 @@ const GoodToKnow = () => {
     sortingMenuRef.current.classList.add("hidden")
   }
 
-  return (
-    <div data-aos="fade-in" className="mt-20 w-full px-4">
-      <h1 data-aos="fade-up" className="uppercase text-4xl md:text-6xl font-rale text-teal-900 text-center leading-tight">good to know</h1>
-      <div className="w-20 h-1.5 bg-teal-900 mt-3 mx-auto"></div>
-      <div className="w-full flex justify-between mt-4">
-        <p className="capitalize text-teal-900 font-open tracking-tight">files</p>
-        <div className="flex items-center">
-          <button className="">
-            <SearchIco classes={"h-4 w-4"} />
-          </button>
-          <button className="">
-            <DotsVertical classes={"h-6 w-6"} />
-          </button>
-        </div>
-      </div>
-      <div className="relative flex justify-between mt-4">
-        <button onClick={handleSortingMenuToggleClick} className="flex items-center text-teal-900">
-          <span ref={sortingMenuBtnTitleRef} className="capitalize text-teal-900 font-open tracking-tight">last updated</span>
-          <CaretDownIco classes={"mt-1 ml-0.5 w-3 h-3"} />
-        </button>
-        <button onClick={addFileClick} className="rounded-full h-10 w-10 flex items-center justify-center bg-teal-600 text-teal-50">
-          <PlusIco classes={" h-6 w-6"} />
-        </button>
-      </div>
-      <div ref={sortingMenuRef} className="relative hidden">
-        <div onClick={handleOverlayClick} className="fixed inset-0 w-full h-full">
+  const sortedGoods = sortGoods(sortingMenuItems, goods)
 
+  return (
+    <div data-aos="fade-in" className="">
+      <div data-aos="fade-up" className="mt-20 flex flex-col items-center pt-8 w-full">
+        <h1 className=" uppercase text-4xl md:text-6xl font-rale text-teal-900 text-center leading-tight">good to <br className="sm:hidden" /> know</h1>
+        <div className="w-20 h-1.5 bg-teal-900 mt-3 mx-auto"></div>
+        <div className="w-full flex justify-between mt-4 px-4">
+          <p className="capitalize text-teal-900 font-open tracking-tight">files</p>
+          <div className="flex items-center">
+            <button className="flex h-6 w-6 items-center justify-center">
+              <SearchIco classes={"h-4 w-4"} />
+            </button>
+            <button className="">
+              <DotsVertical classes={"h-6 w-6"} />
+            </button>
+          </div>
         </div>
-        <div onClick={handleSortingMenuItemClick} className="absolute w-56 bg-white top-0 left-1 rounded-sm shadow-md flex flex-col pt-2">
+        <div className="w-full relative flex justify-between mt-4  px-4">
+          <button onClick={handleSortingMenuToggleClick} className="flex items-center text-teal-900">
+            <span ref={sortingMenuBtnTitleRef} className="capitalize text-teal-900 font-open tracking-tight">last updated</span>
+            <CaretDownIco classes={"mt-1 ml-0.5 w-3 h-3"} />
+          </button>
+          <button onClick={addFileClick} className="rounded-full h-10 w-10 flex items-center justify-center bg-teal-600 text-teal-50">
+            <PlusIco classes={" h-6 w-6"} />
+          </button>
+        </div>
+        <div ref={sortingMenuRef} className="relative hidden self-start">
+          <div onClick={handleOverlayClick} className="fixed inset-0 w-full h-full">
+
+          </div>
+          <div onClick={handleSortingMenuItemClick} className="absolute w-56 bg-white top-0 left-1 rounded-sm shadow-md flex flex-col pt-2">
+            {
+              sortingMenuItems.map((item) => getSortingItemBtn(item))
+            }
+          </div>
+        </div>
+        <div className="w-full flex flex-col mt-2 mb-14 font-open text-teal-900 border-t border-gray-300">
           {
-            sortingMenuItems.map((item) => getSortingItemBtn(item))
+            sortedGoods && sortedGoods.map((good, index) => <Good good={good} key={index} />)
           }
         </div>
-      </div>
-      <div className="flex flex-col mt-2 mb-14 font-open text-teal-900 border-t border-gray-300">
-        {
-          goods.map((good, index) => getGood(good, index, handleFavoriteClick))
-        }
       </div>
     </div>
   )

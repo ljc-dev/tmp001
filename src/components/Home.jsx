@@ -55,7 +55,7 @@ const Home = () => {
           </div>
         </section >
         <section data-aos="sm-fade-up" id="about" className=" py-20 flex items-center flex-col bg-teal-50 text-teal-900 text-center">
-          <div data-aos="fade-in">
+          <div data-aos="bg-fade-in">
             <h2 className="uppercase text-4xl md:text-5xl lg:text-6xl font-mont">about us</h2>
             <p className="max-w-screen-sm mt-16 px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis porro facere nemo ex repellendus blanditiis nisi voluptas earum exceptzuri aut ex nihil consequatur ab molestiae inventore, placeat cum providentex praesentaium incidunt ipsa quibusidam aliquam ab ex!</p>
             <p className="max-w-screen-sm mt-4 px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis porro facere nemo ex repellendus blanditiis nisi voluptas earum exceptzuri aut ex nihil consequatur ab molestiae inventore, placeat cum providentex praesentaium incidunt ipsa quibusidam aliquam ab ex deux culpa mae.</p>
@@ -63,12 +63,12 @@ const Home = () => {
           </div >
         </section >
         <section data-aos="sm-fade-up" id="contact" className=" pt-20 md:pb-28 flex items-center flex-col bg-teal-900 text-teal-50 text-center">
-          <h2 data-aos="fade-in" className="uppercase text-4xl md:text-5xl lg:text-6xl font-mont">contact us</h2>
+          <h2 data-aos="bg-fade-in" className="uppercase text-4xl md:text-5xl lg:text-6xl font-mont">contact us</h2>
           <div className="flex flex-col-reverse md:flex-row mt-16 px-4">
             <img className="hidden md:block md:w-1/2 object-fill" src="./assets/map0.png" alt="500 Terry Francois Street, San Francisco, CA 94158" />
             <img className="md:hidden block mt-16 md:w-1/2 object-cover" src="./assets/map0-sm.png" alt="500 Terry Francois Street, San Francisco, CA 94158" />
             <div className="md:ml-8 lg:ml-12 w-full lg:w-96 md:w-80">
-              <p data-aos="fade-in" >500 Terry Francois Street, San Francisco, CA 94158 <br />
+              <p data-aos="bg-fade-in" >500 Terry Francois Street, San Francisco, CA 94158 <br />
               info@mysite.com  Tel: 123-456-7890</p>
               <form onSubmit={handleContactFormSubmit} className="flex flex-col items-start mt-6 ">
                 <label htmlFor="firstName" className="capitalize pb-2">first name <span className="text-orange-200">*</span></label>

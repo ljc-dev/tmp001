@@ -183,8 +183,8 @@ const SignOrLog = () => {
         </form>
         <div ref={communityRef} className="mt-10 flex items-center">
           <input ref={joinCommunityRef} onChange={handleJoinCommunity} type="checkbox" name="joinCommunity" id="joinComId" />
-          <label className="ml-2 text-teal-900" htmlFor="joinComId">Join this site’s community.</label>
-          <button onClick={handleReadMoreLessClick} className="ml-2 underline tracking-tight text-teal-900 hover:text-teal-700">Read more</button>
+          <label className="ml-2 text-teal-900 font-open tracking-tighter" htmlFor="joinComId">Join this site’s community.</label>
+          <button onClick={handleReadMoreLessClick} className="ml-2 underline tracking-tight text-teal-900 hover:text-teal-700 font-open">Read more</button>
         </div>
         <p ref={readMoreTextRef} className="hidden text-teal-900 text-center max-w-lg font-open mt-2">Connect with members of our site. Leave comments, follow people and more. Your nickname, profile image, and public activity will be visible on our site.</p>
       </div>
