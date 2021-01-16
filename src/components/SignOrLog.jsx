@@ -18,6 +18,7 @@ const SignOrLog = () => {
   const mainPasswordErrorRef = useRef(null)
   const passEmailInputRef = useRef(null)
   const passEmailErrorRef = useRef(null)
+  const joinCommunityRef = useRef(null)
 
   const { setShowSignPopup } = useContext(SignContext)
   useEffect(() => {
@@ -26,6 +27,7 @@ const SignOrLog = () => {
   }, [])
 
   useEffect(() => {
+    joinCommunityRef.current.checked = true
     mainEmailInputRef.current.focus()
   }, [])
 
@@ -144,47 +146,51 @@ const SignOrLog = () => {
     }
   }
 
+  function handleJoinCommunity(e) {
+    console.log("join community", e.target.checked)
+  }
+
   return (
     <div className="bg-white fixed inset-0 z-50 px-6 flex flex-col items-center w-full h-screen overflow-auto">
-      <div ref={forgotSignRef} className="hidden flex-col items-center justify-center h-full pt-8">
-        <h1 className="capitalize text-5xl md:text-5xl tracking-tight font-rale text-teal-900 text-center">create new password</h1>
-        <p className="mt-6 text-xl tracking-tight font-open text-teal-700">Please enter your email address</p>
-        <form onSubmit={handlePassFormSubmit} className="mt-12 flex flex-col w-80">
-          <label className="capitalize text-teal-600" htmlFor="passEmailId">email</label>
+      <div ref={forgotSignRef} className="w-full hidden flex-col items-center md:justify-center h-full pt-8">
+        <h1 className="capitalize text-4xl md:text-5xl tracking-tight font-rale text-teal-900 text-center mt-12 md:mt-0 leading-7 md:leading-none">create new password</h1>
+        <p className="mt-4 md:mt-6 md:text-xl tracking-tight font-open text-teal-700">Please enter your email address</p>
+        <form onSubmit={handlePassFormSubmit} className="mt-6 md:mt-12 flex flex-col w-full md:w-80">
+          <label className="capitalize text-teal-600 text-sm md:text-base font-open" htmlFor="passEmailId">email</label>
           <input ref={passEmailInputRef} className="font-open border-b border-teal-600" type="email" name="myPassEmail" id="passEmailId" />
-          <p ref={passEmailErrorRef} className="text-red-500 opacity-0 mb-4 text-xs">Email cannot be blank</p>
+          <p ref={passEmailErrorRef} className="text-red-500 opacity-0 mb-6 md:mb-4 text-xs">Email cannot be blank</p>
           <button ref={formSignBtnRef} className="bg-teal-600 text-teal-50 w-full py-3 capitalize font-open">
             create password
           </button>
         </form>
       </div>
-      <div ref={mainSignRef} className="mt-6 flex flex-col items-center pt-8">
-        <h1 ref={titleRef} className="capitalize text-5xl md:text-5xl tracking-tight font-mont text-teal-900">sign up</h1>
-        <p className="mt-6 text-xl tracking-tight font-open"><span ref={questionRef}>Already a member?</span>
+      <div ref={mainSignRef} className="w-full mt-6 flex flex-col items-center pt-8">
+        <h1 ref={titleRef} className="capitalize text-4xl md:text-5xl tracking-tight font-mont text-teal-900">sign up</h1>
+        <p className="mt-2 md:mt-6 text-base md:text-xl tracking-tight font-open"><span ref={questionRef}>Already a member?</span>
           <button onClick={handleLogToggle} className="ml-2 capitalize tracking-tighter text-teal-500">log in</button>
         </p>
-        <form ref={mainFormRef} onSubmit={handleMainFormSubmit} className="mt-16 flex flex-col w-80">
-          <label className="capitalize text-teal-600" htmlFor="emailId">email</label>
+        <form ref={mainFormRef} onSubmit={handleMainFormSubmit} className="mt-6 md:mt-16 flex flex-col w-full md:w-80">
+          <label className="capitalize text-teal-600 text-sm md:text-base" htmlFor="emailId">email</label>
           <input ref={mainEmailInputRef} className="font-open border-b border-teal-600" type="email" name="myEmail" id="emailId" />
           <p ref={mainEmailErrorRef} className="text-red-500 opacity-0 mb-4 text-xs">Email cannot be blank</p>
-          <label className=" capitalize text-teal-600" htmlFor="passwordId">password</label>
+          <label className="capitalize text-teal-600 text-sm md:text-base" htmlFor="passwordId">password</label>
           <input ref={mainPasswordInputRef} className="font-open border-b border-teal-600" type="password" name="myPassword" id="passwordId" />
           <p ref={mainPasswordErrorRef} className="text-red-500 opacity-0 mb-4 text-xs">Make sure you enter a password.</p>
-          <button ref={forgotPassRef} onClick={handleForgotPass} className="hidden self-start underline mb-4 text-teal-800 hover:text-teal-700">Forgot Password?</button>
+          <button ref={forgotPassRef} onClick={handleForgotPass} className="hidden self-start underline mb-4 text-teal-800 hover:text-teal-700 text-sm md:text-base mt-6 md:mt-0">Forgot Password?</button>
           <button ref={formSignBtnRef} className=" bg-teal-600 text-teal-50 w-full py-3 capitalize font-open">
             sign up
           </button>
         </form>
         <div ref={communityRef} className="mt-10 flex items-center">
-          <input type="checkbox" name="joinCommunity" id="joinComId" />
+          <input ref={joinCommunityRef} onChange={handleJoinCommunity} type="checkbox" name="joinCommunity" id="joinComId" />
           <label className="ml-2 text-teal-900" htmlFor="joinComId">Join this site’s community.</label>
           <button onClick={handleReadMoreLessClick} className="ml-2 underline tracking-tight text-teal-900 hover:text-teal-700">Read more</button>
         </div>
-        <p ref={readMoreTextRef} className="hidden text-teal-900 text-center max-w-lg">Connect with members of our site. Leave comments, follow people and more. Your nickname, profile image, and public activity will be visible on our site.</p>
+        <p ref={readMoreTextRef} className="hidden text-teal-900 text-center max-w-lg font-open mt-2">Connect with members of our site. Leave comments, follow people and more. Your nickname, profile image, and public activity will be visible on our site.</p>
       </div>
       <button onClick={handleCloseClick} className="absolute top-6 right-6 md:top-12 md:right-16">
         <span className="sr-only">close</span>
-        <CrossIco classes={"w-8 h-8"} />
+        <CrossIco classes={"w-6 h-6 md:h-8 md:w-8"} />
       </button>
     </div>
   );
