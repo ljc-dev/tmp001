@@ -182,9 +182,9 @@ const SignOrLog = () => {
         </div>
         <p ref={readMoreTextRef} className="hidden text-teal-900 text-center max-w-lg">Connect with members of our site. Leave comments, follow people and more. Your nickname, profile image, and public activity will be visible on our site.</p>
       </div>
-      <button onClick={handleCloseClick} className="w-8 h-8 absolute top-6 right-6 md:top-12 md:right-16">
+      <button onClick={handleCloseClick} className="absolute top-6 right-6 md:top-12 md:right-16">
         <span className="sr-only">close</span>
-        <CrossIco />
+        <CrossIco classes={"w-8 h-8"} />
       </button>
     </div>
   );

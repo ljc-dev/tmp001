@@ -1,14 +1,14 @@
-import { FaFacebookF } from 'react-icons/fa'
+import { AiOutlineSearch } from 'react-icons/ai'
 import { IconContext } from 'react-icons/lib'
 
-const FacebookIco = ({ classes = "" }) => {
+const SearchIco = ({ classes = "" }) => {
   return (
     <IconContext.Provider value={{
       className: classes,
     }}>
-      <FaFacebookF />
+      <AiOutlineSearch />
     </IconContext.Provider>
   )
 }
 
-export default FacebookIco
+export default SearchIco

@@ -1,14 +1,14 @@
-import { FaFacebookF } from 'react-icons/fa'
+import { FiMoreVertical } from 'react-icons/fi'
 import { IconContext } from 'react-icons/lib'
 
-const FacebookIco = ({ classes = "" }) => {
+const DotsVertical = ({ classes = "" }) => {
   return (
     <IconContext.Provider value={{
       className: classes,
     }}>
-      <FaFacebookF />
+      <FiMoreVertical />
     </IconContext.Provider>
   )
 }
 
-export default FacebookIco
+export default DotsVertical

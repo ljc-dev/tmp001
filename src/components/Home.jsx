@@ -66,7 +66,7 @@ const Home = () => {
           <h2 data-aos="fade-in" className="uppercase text-4xl md:text-5xl lg:text-6xl font-mont">contact us</h2>
           <div className="flex flex-col-reverse md:flex-row mt-16 px-4">
             <img className="hidden md:block md:w-1/2 object-fill" src="./assets/map0.png" alt="500 Terry Francois Street, San Francisco, CA 94158" />
-            <img className="md:hidden block mt-16 md:w-1/2 object-fill" src="./assets/map0-sm.png" alt="500 Terry Francois Street, San Francisco, CA 94158" />
+            <img className="md:hidden block mt-16 md:w-1/2 object-cover" src="./assets/map0-sm.png" alt="500 Terry Francois Street, San Francisco, CA 94158" />
             <div className="md:ml-8 lg:ml-12 w-full lg:w-96 md:w-80">
               <p data-aos="fade-in" >500 Terry Francois Street, San Francisco, CA 94158 <br />
               info@mysite.com  Tel: 123-456-7890</p>
