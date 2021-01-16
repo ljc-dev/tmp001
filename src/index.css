@@ -52,4 +52,15 @@
       transform: translate3d(0, 0, 0);
     }
   }
+
+  @media (min-width: 640px) {
+    [data-aos="bg-fade-in"] {
+      transition-property: opacity, transform;
+      transform: translate3d(0, 100px, 0);
+    }
+
+    [data-aos="bg-fade-in"].aos-animate {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }

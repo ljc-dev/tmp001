@@ -2,7 +2,6 @@ import { useAutoScrollToTop } from "../hooks/scrollToTop"
 import { checkInputValidity, removeValidOrNotMarker } from "../utils/formFcts"
 import Rellax from 'rellax'
 import { useEffect, useRef } from "react"
-import "./customAOS.css"
 import { useHistory } from "react-router-dom"
 
 const Home = () => {
