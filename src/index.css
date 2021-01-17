@@ -35,7 +35,6 @@
   }
 }
 
-@layer utilities {
   .darken:hover {
     filter: brightness(85%) contrast(115%);
   }
@@ -63,4 +62,3 @@
       transform: translate3d(0, 0, 0);
     }
   }
-}
