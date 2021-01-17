@@ -57,6 +57,11 @@ const goods = [
   },
 ]
 
+function getTitleFromSortedMenu(sortingMenuItems) {
+  const item = sortingMenuItems.find((item) => item.upDownNot !== "not")
+  return item.title
+}
+
 const GoodToKnow = () => {
   const { showSignPopup, setShowSignPopup } = useContext(SignContext)
   const sortingMenuRef = useRef(null)
@@ -128,6 +133,7 @@ const GoodToKnow = () => {
   }
 
   const sortedGoods = sortGoods(sortingMenuItems, goods)
+  const sortedTitle = getTitleFromSortedMenu(sortingMenuItems)
 
   return (
     <div data-aos="fade-in" className="">
@@ -147,7 +153,7 @@ const GoodToKnow = () => {
         </div>
         <div className="w-full relative flex justify-between mt-4  px-4">
           <button onClick={handleSortingMenuToggleClick} className="flex items-center text-teal-900">
-            <span ref={sortingMenuBtnTitleRef} className="capitalize text-teal-900 font-open tracking-tight">last updated</span>
+            <span ref={sortingMenuBtnTitleRef} className="capitalize text-teal-900 font-open tracking-tight">{sortedTitle}</span>
             <CaretDownIco classes={"mt-1 ml-0.5 w-3 h-3"} />
           </button>
           <button onClick={addFileClick} className="rounded-full h-10 w-10 flex items-center justify-center bg-teal-600 text-teal-50">
